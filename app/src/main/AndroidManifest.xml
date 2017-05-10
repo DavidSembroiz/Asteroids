@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.asteroides"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="9"
+        android:targetSdkVersion="17" />
+	<uses-permission android:name="android.permission.RECEIVE_SMS"></uses-permission>
+	<uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
+	<uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <application
+        android:allowBackup="true"
+        android:debuggable="false"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" 
+        android:launchMode="singleTask">
+        <activity
+            android:name="com.example.asteroides.Asteroides"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity 
+            android:label="@string/acercadeMenu" 
+            android:name="AcercaDe"
+            android:theme="@android:style/Theme.Dialog">
+        </activity>
+        <activity android:label="Preferencias" android:name="Preferencias"></activity>
+        <activity android:label="@string/puntuacionesTitulo" android:name="Puntuaciones"></activity>
+        <activity android:name="Juego" android:label="Juego" android:screenOrientation="landscape" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"></activity>
+        <service android:name=".ServicioMusica" />
+        <receiver android:name="Receptor" >
+    		<intent-filter>
+				<action android:name="android.provider.Telephony.SMS_RECEIVED" />
+    		</intent-filter>
+		</receiver>
+    </application>
+
+</manifest>
